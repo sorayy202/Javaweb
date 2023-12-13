@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录页面</title>
+<style>
+    body{
+        background: url('https://cdn.pixabay.com/photo/2018/08/14/13/23/ocean-3605547_1280.jpg') no-repeat;
+        background-size: 100% 130%
+    }
+    #login_box {
+        width: 20%;
+        height: 400px;
+        background-color: #00000060;
+        margin: auto;
+        margin-top: 10%;
+        text-align: center;
+        border-radius: 10px;
+        padding: 50px 50px;
+    }
+
+    h2 {
+        color: #ffffff90;
+        margin-top: 5%;
+    }
+
+    #input-box {
+        margin-top: 5%;
+    }
+
+    span {
+        color: #fff;
+    }
+
+    input {
+        border: 0;
+        width: 60%;
+        font-size: 15px;
+        color: #fff;
+        background: transparent;
+        border-bottom: 2px solid #fff;
+        padding: 5px 10px;
+        outline: none;
+        margin-top: 10px;
+    }
+
+    button {
+        margin-top: 50px;
+        width: 60%;
+        height: 30px;
+        border-radius: 10px;
+        border: 0;
+        color: #fff;
+        text-align: center;
+        line-height: 30px;
+        font-size: 15px;
+        background-image: linear-gradient(to right, #30cfd0, #330867);
+    }
+
+    #sign_up {
+        margin-top: 45%;
+        margin-left: 60%;
+    }
+
+    a {
+        color: #b94648;
+    }
+</style>
+</head>
+<body>
+<form  id="LoginForm" action="loginServlet" method="post" >
+<div id="login_box">
+    <h2>登录</h2>
+    <div id="input_box">
+        <input id="username" type="text" name="username" placeholder="请输入账号">
+    </div>
+    <div class="input_box">
+        <input id="password" type="password" name="password"  placeholder="请输入密码">
+    </div>
+    <span class="msg" id="msg" style="color: red" ></span>
+    <button href="javascript:login();">登录</button><br>
+     <div style="color: white;padding-top: 20px;"><a href="register.jsp" style="color: white">注册</a><br></div>
+</div>
+
+</form>
+
+<!--            <div style="width: 350px;height: 350px;">-->
+<!--             <img src="../imgs/login.jpg" style="width: 350px;height: 350px;border-radius: 10px 0 0 10px;object-fit: cover">-->
+<!--            </div>-->
+
+<!--            <div style="width: 350px;height: 350px;padding: 20px">-->
+<!--                <div style="width: 100%;display: flex;justify-content: center;font-size: 20px;margin-bottom: 40px"><text>网络点餐登录</text></div>-->
+<!--                <div style="width: 100%;display: flex;justify-content: center">-->
+<!--                <input id="username" type="text" name="username" style="background-color: white;width: 90%;height: 30px;margin-bottom: 20px" placeholder="账号">-->
+<!--                </div>-->
+<!--                <div style="width: 100%;display: flex;justify-content: center">-->
+<!--                <input id="password" type="password" name="password" style="background-color: white;width: 90%;height: 30px" placeholder="密码">-->
+<!--                </div>-->
+
+<!--            <span class="msg" id="msg" style="color: red" ></span>-->
+<!--                <div style="width: 100%;display: flex;justify-content: center;margin: 40px auto 10px auto;">-->
+<!--                    <a href="javascript:login();" ><div style="width: 200px;height: 40px;background-color: rgb(1,118,161);color: white;display: flex;justify-content: center;align-items: center;font-size: 14px;border-radius: 15px"><text>登录</text></div></a>-->
+<!--                </div>-->
+<!--                <div style="width: 100%;display: flex;justify-content: center;">-->
+<!--                    <a href="register.jsp" ><div style="width: 200px;height: 40px;background-color: rgb(1,118,161);color: white;display: flex;justify-content: center;align-items: center;font-size: 14px;border-radius: 15px"><text>注册</text></div></a>-->
+<!--                </div>-->
+
+<!--            </div>-->
+
+</body>
+
+
+
+<script type="text/javascript" src="./js/jquery-3.4.1.js"></script>
+<script type="text/javascript">
+
+
+    function login() {
+        console.log("我能过来")
+        var uname = $("#username").val();
+        var upwd = $("#password").val();
+
+        if (isEmpty(uname)){
+            $("#msg").html("用户姓名不可为空");
+            return;
+        }
+        if (isEmpty(upwd)){
+            $("#msg").html("用户密码不可为空");
+            return;
+        }
+
+        $("#LoginForm").submit();
+
+
+    }
+
+    //专用方法：判断为空
+
+    function isEmpty(str) {
+        if (str == null || str.trim() == ""){
+            return true;
+        }
+        return false;
+
+    }
+
+
+</script>
+
+</html>
